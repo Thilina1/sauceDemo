@@ -1,0 +1,11 @@
+{
+  "saucedemo": {
+    "LoginCredentials": {
+      "LoginURL": "https://www.saucedemo.com/",
+      "StandardUser": {
+        "userName": "standard_user",
+        "password": "secret_sauce"
+      }
+    }
+  }
+}
