@@ -27,11 +27,11 @@ test.describe('SourceDemo Tests', () => {
     VERIFY_ORDER_COMPLETION = new verifyOrderCompletion(page);
   });
 
-  test('Load SauceDemo website and validate login page', async () => {
+  test('01 | Load SauceDemo website and validate login page', async () => {
     await LOGIN_PAGE.validateLoginPage();
   });
 
-  test('Log in as a standard user.', async () => {
+  test('02 | Log in as a standard user.', async () => {
     await LOGIN_PAGE.login(
       UserLogins.saucedemo.LoginCredentials.StandardUser.userName,
       UserLogins.saucedemo.LoginCredentials.StandardUser.password
@@ -39,24 +39,24 @@ test.describe('SourceDemo Tests', () => {
     await INVENTORY_PAGE.verifyInventoryPage();
   });
 
-  test('Sort the products by Price (high to low).', async () => {
+  test('03 | Sort the products by Price (high to low).', async () => {
     await INVENTORY_PAGE.sortHighToLow();
   });
 
-  test('Add the three cheapest products to your basket from UI.', async() => {
+  test('04 | Add the three cheapest products to your basket from UI.', async() => {
     await INVENTORY_PAGE.addThreeCheapestProductsToCart();
   })
 
-  test('Open the basket.', async () => {
+  test('05 | Open the basket.', async () => {
     await INVENTORY_PAGE.navigateToShoppingCart();
     await CART_PAGE.validateCartPage();
   });
 
-  test("Remove the cheapest product from your basket.", async () => {
+  test("06 | Remove the cheapest product from your basket.", async () => {
     await CART_PAGE.removeLowestPriceItem()
   })
 
-  test("Submit First name, Last name and postal code and complete purchase.", async () => {
+  test("07 | Submit First name, Last name and postal code and complete purchase.", async () => {
     await CART_PAGE.navigateToCheckout();
     await CHECK_OUT_PAGE.fillCheckoutForm(UserInputs.saucedemo.UserInputs.firstName, 
                                           UserInputs.saucedemo.UserInputs.lastName, 
@@ -64,7 +64,7 @@ test.describe('SourceDemo Tests', () => {
     await CHECK_OUT_TWO_PAGE.finishCheckOut();
   })
 
-  test('Verify the order completion.', async () => {
+  test('08 | Verify the order completion.', async () => {
     await VERIFY_ORDER_COMPLETION.verifyCheckoutComplete();
   });
 
